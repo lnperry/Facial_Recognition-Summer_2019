@@ -29,8 +29,8 @@ cascade_eye = cv2.CascadeClassifier('haarcascade_eye.xml')
 # cv2.Videocamera_capture uses your webcam feed 
 # unless additional peripherals/cameras are attached
 camera_cap = cv2.VideoCapture(0) 
-  
-# loop if camera_cap has been initialized. 
+ 
+# run if camera_cap has been initialized. 
 while True:  
   
     # reads the individual frames from camera_cam 
