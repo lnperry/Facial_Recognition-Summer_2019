@@ -1,20 +1,21 @@
 '''
 Program to detect faces from image feed in real time.
 You must install: 
-1. python openCV library 
-2. haarcascade_eye.xml
-3. haarcascade_frontalface_default.xml
-4. save both .xml files in the same directory as .py
-
-1. open CMD and type: pip install opencv-python
-2. download link: https://github.com/opencv/opencv/tree/master/data/haarcascades
-3. download link: https://github.com/opencv/opencv/tree/master/data/haarcascades
-4. ensure both .xml files are saved in the same directory
-   the .py is running from
+1.  python openCV library 
+    1A. open CMD and type: pip install opencv-python
+2.  haarcascade_eye.xml
+    2A. download link: 
+        https://github.com/opencv/opencv/tree/master/data/haarcascades
+3.  haarcascade_frontalface_default.xml
+    3A. down link:
+        https://github.com/opencv/opencv/tree/master/data/haarcascades
+4.  place both .xml files in the same directory as .py 
+    or change directory paths in code
+   
 '''
 # import python OpenCV   
 import cv2  
-  
+ 
 # load openCV trained XML classifiers 
 # Trained openCV XML classifiers store
 # data of unique features of some object to detect 
