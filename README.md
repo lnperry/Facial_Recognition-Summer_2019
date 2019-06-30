@@ -1,4 +1,4 @@
 # Facial_Recognition
-Program to detect faces from live camera feed
+Program to detect faces from live camera feed using Python's openCV library
 
 ![Image of Program](https://i.imgur.com/eYdA59a.png)
