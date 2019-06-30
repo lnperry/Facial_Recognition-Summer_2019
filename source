@@ -1,0 +1,66 @@
+
+'''
+Program to detect faces from image feed in real time.
+You must install: 
+1. python openCV library 
+2. haarcascade_eye.xml
+3. haarcascade_frontalface_default.xml
+
+1. open CMD and type: pip install opencv-python
+2. download link: https://github.com/opencv/opencv/tree/master/data/haarcascades
+3. download link: https://github.com/opencv/opencv/tree/master/data/haarcascades
+'''
+# import python OpenCV   
+import cv2  
+  
+# load openCV trained XML classifiers 
+# Trainedo openCV XML classifiers store data of unique features of some object to detect 
+# a cascade function is an algorithm trained from positive and negative objects
+# in our case, images containing human faces and non-human faces
+cascade_face = cv2.CascadeClassifier('haarcascade_frontalface_default.xml') 
+
+# Trained XML file for detecting eyes 
+cascade_eye = cv2.CascadeClassifier('haarcascade_eye.xml')  
+  
+# capture frames from a camera (cv2.VideoCapture uses your webcam feed 
+                                #unless additional peripherals/cameras are attached)
+camera_cap = cv2.VideoCapture(0) 
+  
+# loop runs if capturing has been initialized. 
+while True:  
+  
+    # reads frames from a camera 
+    ret, img = camera_cap.read()  
+  
+    # convert to gray scale of each frames 
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) 
+  
+    # Detects faces of different sizes in the input image 
+    img_faces = cascade_face.detectMultiScale(gray, 1.2, 4.8) 
+  
+    for (x,y,w,h) in img_faces: 
+        # Draw red rectangle around face(s)  
+        cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)  
+        roi_gray = gray[y:y+h, x:x+w] 
+        roi_color = img[y:y+h, x:x+w] 
+  
+        # Detects eyes of different sizes in the input image 
+        img_eyes = eye_cascade.detectMultiScale(roi_gray)  
+  
+        #Draw blue rectangle around eyes 
+        for (ax,ay,aw,ah) in img_eyes: 
+            cv2.rectangle(roi_color,(ax,ay),(ax+aw,ay+ah),(0,0,255),2) 
+  
+    # Display an image in a window 
+    cv2.imshow('img',img) 
+  
+    # Wait for Esc key to stop 
+    k = cv2.waitKey(30) & 0xff
+    if k == 27: 
+        break
+  
+# Close the window 
+cap.release() 
+  
+# De-allocate any associated memory usage 
+cv2.destroyAllWindows() 
