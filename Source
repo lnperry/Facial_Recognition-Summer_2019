@@ -28,8 +28,7 @@ cascade_face = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 cascade_eye = cv2.CascadeClassifier('haarcascade_eye.xml')  
   
 # camera_capture frames from a camera
-# cv2.Videocamera_capture uses your webcam feed 
-# unless additional peripherals/cameras are attached
+# cv2.Videocamera_capture uses your webcam feed by default
 camera_cap = cv2.VideoCapture(0) 
  
 # run if camera_cap has been initialized. 
